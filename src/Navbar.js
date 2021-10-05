@@ -19,6 +19,7 @@ function Navbarr(){
             <NavDropdown.Item href="#withdraw">Withdraw</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#deposit">Deposit</NavDropdown.Item>
+            <NavDropdown.Item href="#alldata">All Data</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

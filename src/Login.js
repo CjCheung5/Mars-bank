@@ -25,23 +25,28 @@ function Login(){
   //fix the foreach loop
   function dbCheck(nam, pw){
     const users = ctx.users;
-    const result = users.forEach(user=>{
-        if(user.username !== nam){
-          setStatus('You dont have the account in our database');
-          console.log("wrong name")
-          return false
-        } else if(user.userpassword !== pw){
-              setStatus('Wrong password');
-              console.log("wrong password")
-              return false
-        }
-        else{
-          ctx.current = user;
-          console.log("true");
-          return true;
-        }
-      });  
-      return result;
+    let result = false;
+      if(users.length > 0){
+        users.filter((user) =>{
+          if(user.username === nam){
+            if(user.userpassword === pw){
+              //ctx.current=[];
+              ctx.current = {username : user.username, useremail: user.useremail, userpassword: user.userpassword, userbalance: 100 };
+              result = true;
+            } else{
+              setStatus("please enter the correct password");
+              setTimeout(()=>setStatus(''),3000);
+            }
+          } else{
+            setStatus("please create your account");
+            setTimeout(()=>setStatus(''),3000);
+          }
+        })
+      } else{
+        setStatus("please create your account");
+        setTimeout(()=>setStatus(''),3000);
+      }
+    return result;
   }
 
   //set current login user context
@@ -49,7 +54,7 @@ function Login(){
   function handleLogin(){
     if (!validate(name, 'name')) return;
     if (!validate(password, 'password')) return;
-    if (!dbCheck(name, password)) return;
+    if (!dbCheck(name, password)) return console.log('didnt pass the db check');
     console.log(ctx.current);
     setShow(false);
 
@@ -69,7 +74,7 @@ function Login(){
             <input type="input" className="form-control" placeholder="Please enter your username" value={name} onChange={e=> setName(e.currentTarget.value)}></input>
             <p>Password</p>
             <input type="input" className="form-control" placeholder="Pleases enter your password" value={password} onChange={e=> setPassword(e.currentTarget.value)}></input>
-            <button type="submit" className="btn btn-light btn-submit" onClick={handleLogin}>Register</button>
+            <button type="submit" className="btn btn-light btn-submit" onClick={handleLogin}>Login</button>
           </form>
           <div className="createStatus">{status}</div>
         </div>

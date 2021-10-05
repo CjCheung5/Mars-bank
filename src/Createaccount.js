@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Usercontext from './Context';
-import { Card } from 'react-bootstrap';
+import { Card, OverlayTrigger, Popover } from 'react-bootstrap';
 import "./Createaccount.css";
 import Navbarr from './Navbar';
 
@@ -11,6 +11,7 @@ function CreateAccount(){
   const [name, setName]         = React.useState('');
   const [email, setEmail]       = React.useState('');
   const [password, setPassword] = React.useState('');
+  
   function validate(field, label){
       if (!field) {
         setStatus('Error: ' + label);
@@ -20,11 +21,18 @@ function CreateAccount(){
       return true;
   }
 
+  function updateCurrent(){
+    //ctx.current = [];
+    ctx.current = {username: name, useremail: email, userpassword: password, userbalance: 100};
+    console.log("renewed current");
+  }
+
   function handleCreate(){
     if (!validate(name,     'name'))     return;
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
-    ctx.users.push({username: name, useremail: email, userpassword: password, userbalance: "100"});
+    ctx.users.push({username: name, useremail: email, userpassword: password, userbalance: 100});
+    updateCurrent();
     setShow(false);
     console.log(name,email,password);
   }    
@@ -57,6 +65,7 @@ function CreateAccount(){
              <>
              <h5>Success</h5>
              <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
+              {alert("Succesfully Created Account")}
              </>
            )}
          </Card.Body>
