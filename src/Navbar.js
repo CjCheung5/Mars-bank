@@ -7,19 +7,17 @@ function Navbarr(){
     <>
       <Navbar bg="light" expand="lg">
     <Container>
-      <Navbar.Brand href="#/">Banking App</Navbar.Brand>
+      <Navbar.Brand href="#/">MARS Online Banking App</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="#/">Home</Nav.Link>
           <Nav.Link href="#login">Login</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#createaccount">Create Account</NavDropdown.Item>
+          <Nav.Link href="#createaccount">Create Account</Nav.Link>
+          <NavDropdown title="Online Banking" id="basic-nav-dropdown">
             <NavDropdown.Item href="#balance">Balance</NavDropdown.Item>
             <NavDropdown.Item href="#withdraw">Withdraw</NavDropdown.Item>
-            <NavDropdown.Divider />
             <NavDropdown.Item href="#deposit">Deposit</NavDropdown.Item>
-            <NavDropdown.Item href="#alldata">All Data</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

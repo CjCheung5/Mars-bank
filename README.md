@@ -1,12 +1,22 @@
-Project Title: Banking App
+# MARS Online Banking App
 
-Description/Motivation: An MIT course work for banking function
+MARS is an online banking app demo, using React.js, Bootstrap css, React Router and local storage to perform simple registration, login, withdraw, deposit and showing balance.
 
-Installation Guidelines: npm install then npm start
+## Installation
 
-Screenshots: 
-<img width="776" alt="Screenshot 2022-01-26 at 12 17 55 AM" src="https://user-images.githubusercontent.com/19802256/151015791-034050f2-cfd4-4997-837b-39759688b335.png">
+npm install
 
-Technology used: React, Bootstrap
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-License: MIT
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Author
+Calvin Cheung
+https://cjcheung5.github.io
+
+## Demo
+Demo: https://mitbankingapp.herokuapp.com/#/
